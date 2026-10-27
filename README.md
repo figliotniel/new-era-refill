@@ -1,16 +1,34 @@
-# React + Vite
+# 🌿 New Era Refill
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Layanan isi ulang sabun & sampo langsung ke rumahmu.**  
+Hemat uang, nol sampah plastik, petugas datang menuang ke botolmu sendiri.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React + Vite** — Frontend framework
+- **Tailwind CSS** — Styling mobile-first
+- **Framer Motion** — Animasi transisi halaman
+- **Zustand** — State management (keranjang, pesanan)
+- **Leaflet + OpenStreetMap** — Peta lacak kurir (gratis, tanpa API key)
+- **Lucide React** — Icon library
 
-## React Compiler
+## Halaman
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Halaman | Deskripsi |
+|---|---|
+| Beranda | Landing, kalkulator hemat plastik, katalog produk |
+| Pesan | Pilih produk, takaran ml interaktif, opsi botol |
+| Checkout | Alamat GPS, jadwal slot waktu, QRIS / COD |
+| Lacak | Peta Leaflet + simulasi pergerakan kurir, stepper status |
+| Profil | Eco-impact stats, lencana, riwayat pesanan |
 
-## Expanding the Oxlint configuration
+## Jalankan Lokal
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+Proyek ini siap di-deploy ke **Vercel** — import repo ini dan klik Deploy.
