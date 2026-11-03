@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 
-export default function BottomSheet({ isOpen, onClose, title, children }) {
+export default function BottomSheet({ isOpen, onClose, title, children, footer }) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -28,8 +28,10 @@ export default function BottomSheet({ isOpen, onClose, title, children }) {
               <div className="w-10 h-1 rounded-full bg-gray-200" />
             </div>
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
-              <h3 className="text-base font-bold text-gray-800">{title}</h3>
+            <div className={`flex items-center justify-between px-5 py-3 ${title ? 'border-b border-gray-100' : ''}`}>
+              {title ? (
+                <h3 className="text-base font-bold text-gray-800">{title}</h3>
+              ) : <div />}
               <button
                 onClick={onClose}
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors"
@@ -38,9 +40,15 @@ export default function BottomSheet({ isOpen, onClose, title, children }) {
               </button>
             </div>
             {/* Content */}
-            <div className="px-5 py-4 max-h-[70vh] overflow-y-auto">
+            <div className="px-5 py-2 overflow-y-auto" style={{ maxHeight: footer ? '65vh' : '75vh' }}>
               {children}
             </div>
+            {/* Sticky Footer */}
+            {footer && (
+              <div className="px-5 pb-6 pt-3 bg-white border-t border-gray-100">
+                {footer}
+              </div>
+            )}
           </motion.div>
         </>
       )}

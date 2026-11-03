@@ -20,6 +20,7 @@ const pageVariants = {
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [showCheckout, setShowCheckout] = useState(false)
+  const [hideBottomNav, setHideBottomNav] = useState(false)
   const { placeOrder, clearCart } = useStore()
 
   const handleCheckout = () => setShowCheckout(true)
@@ -49,7 +50,7 @@ export default function App() {
       case 'order':
         return (
           <motion.div key="order" {...pageVariants} transition={{ duration: 0.2 }}>
-            <OrderPage onCheckout={handleCheckout} />
+            <OrderPage onCheckout={handleCheckout} onSheetToggle={setHideBottomNav} />
           </motion.div>
         )
       case 'track':
@@ -77,8 +78,8 @@ export default function App() {
           {renderPage()}
         </AnimatePresence>
 
-        {/* Bottom Nav - hidden during checkout */}
-        {!showCheckout && (
+        {/* Bottom Nav - hidden during checkout or when a sheet is open */}
+        {!showCheckout && !hideBottomNav && (
           <BottomNav
             active={activeTab}
             onChange={(tab) => { setActiveTab(tab); setShowCheckout(false) }}
